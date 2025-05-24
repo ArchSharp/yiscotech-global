@@ -43,10 +43,8 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    await dbConnect();
-
-    const body = await request.json();
-    const { title, description, imageUrl, category, location, completionDate, isPublished } = body;
+    await dbConnect();    const body = await request.json();
+    const { title, description, imageUrl, caption, category, location, completionDate, isPublished } = body;
 
     // Validate required fields
     if (!title || !description || !imageUrl || !category) {
@@ -54,12 +52,11 @@ export async function POST(request: NextRequest) {
         { success: false, error: 'Missing required fields' },
         { status: 400 }
       );
-    }
-
-    const project = new Project({
+    }    const project = new Project({
       title,
       description,
       imageUrl,
+      caption,
       category,
       location,
       completionDate: completionDate ? new Date(completionDate) : undefined,

@@ -5,6 +5,7 @@ export interface IProject {
   title: string;
   description: string;
   imageUrl: string;
+  caption?: string;
   category: string;
   location?: string;
   completionDate?: Date;
@@ -25,10 +26,14 @@ const ProjectSchema = new mongoose.Schema<IProject>({
     required: [true, 'Project description is required'],
     trim: true,
     maxlength: [500, 'Description cannot exceed 500 characters']
-  },
-  imageUrl: {
+  },  imageUrl: {
     type: String,
     required: [true, 'Project image is required']
+  },
+  caption: {
+    type: String,
+    trim: true,
+    maxlength: [200, 'Caption cannot exceed 200 characters']
   },
   category: {
     type: String,
