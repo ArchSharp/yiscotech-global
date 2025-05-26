@@ -15,7 +15,11 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -25,11 +29,13 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
-      setSubmitMessage("Thank you for your message! We'll get back to you within 24 hours.");
+      setSubmitMessage(
+        "Thank you for your message! We'll get back to you within 24 hours."
+      );
       setFormData({
         name: "",
         email: "",
@@ -41,7 +47,9 @@ export default function Contact() {
   };
 
   return (
-    <div className="bg-white min-h-screen">      {/* Hero Section */}
+    <div className="bg-white min-h-screen">
+      {" "}
+      {/* Hero Section */}
       <section className="relative py-20 lg:py-32 border-b border-gray-200 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
@@ -52,23 +60,21 @@ export default function Contact() {
             className="w-full h-full object-cover"
           />
         </div>
-        
+
         <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
             Get in <span className="font-light">Touch</span>
           </h1>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
-            Ready to start your land surveying project? Contact YiscoTechGlobal Ltd 
-            for professional consultation and competitive quotes.
+            Ready to start your land surveying project? Contact YiscoTechGlobal
+            Ltd for professional consultation and competitive quotes.
           </p>
         </div>
       </section>
-
       {/* Contact Information & Form */}
       <section className="py-16 lg:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            
             {/* Contact Information */}
             <div>
               <h2 className="text-3xl font-bold text-black mb-12">
@@ -81,11 +87,18 @@ export default function Contact() {
                     <Phone className="text-black" size={24} strokeWidth={1} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-black mb-2">Phone</h3>
-                    <a href="tel:+15551234567" className="text-gray-600 hover:text-black transition-colors text-lg">
+                    <h3 className="text-lg font-semibold text-black mb-2">
+                      Phone
+                    </h3>
+                    <a
+                      href="tel:+15551234567"
+                      className="text-gray-600 hover:text-black transition-colors text-lg"
+                    >
                       +1 (555) 123-4567
                     </a>
-                    <p className="text-sm text-gray-500 mt-1">Mon-Fri 8:00 AM - 6:00 PM</p>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Mon-Fri 8:00 AM - 6:00 PM
+                    </p>
                   </div>
                 </div>
 
@@ -94,11 +107,18 @@ export default function Contact() {
                     <Mail className="text-black" size={24} strokeWidth={1} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-black mb-2">Email</h3>
-                    <a href="mailto:info@yiscotechglobal.com" className="text-gray-600 hover:text-black transition-colors text-lg">
+                    <h3 className="text-lg font-semibold text-black mb-2">
+                      Email
+                    </h3>
+                    <a
+                      href="mailto:info@yiscotechglobal.com"
+                      className="text-gray-600 hover:text-black transition-colors text-lg"
+                    >
                       info@yiscotechglobal.com
                     </a>
-                    <p className="text-sm text-gray-500 mt-1">We'll respond within 24 hours</p>
+                    <p className="text-sm text-gray-500 mt-1">
+                      We&apos;ll respond within 24 hours
+                    </p>
                   </div>
                 </div>
 
@@ -107,10 +127,14 @@ export default function Contact() {
                     <MapPin className="text-black" size={24} strokeWidth={1} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-black mb-2">Office Address</h3>
+                    <h3 className="text-lg font-semibold text-black mb-2">
+                      Office Address
+                    </h3>
                     <p className="text-gray-600 text-lg leading-relaxed">
-                      123 Survey Street<br />
-                      Professional District<br />
+                      123 Survey Street
+                      <br />
+                      Professional District
+                      <br />
                       City, State 12345
                     </p>
                   </div>
@@ -119,7 +143,9 @@ export default function Contact() {
 
               {/* WhatsApp CTA */}
               <div className="mt-12 p-6 border border-gray-200 bg-gray-50">
-                <h3 className="text-lg font-semibold text-black mb-3">💬 WhatsApp</h3>
+                <h3 className="text-lg font-semibold text-black mb-3">
+                  💬 WhatsApp
+                </h3>
                 <p className="text-gray-600 mb-4">
                   For quick responses and immediate assistance
                 </p>
@@ -149,7 +175,10 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-black mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-black mb-2"
+                    >
                       Full Name *
                     </label>
                     <input
@@ -165,7 +194,10 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-black mb-2"
+                    >
                       Email Address *
                     </label>
                     <input
@@ -183,7 +215,10 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-black mb-2">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-black mb-2"
+                    >
                       Phone Number
                     </label>
                     <input
@@ -198,7 +233,10 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-black mb-2">
+                    <label
+                      htmlFor="service"
+                      className="block text-sm font-medium text-black mb-2"
+                    >
                       Service Type *
                     </label>
                     <select
@@ -210,17 +248,28 @@ export default function Contact() {
                       className="w-full px-4 py-3 border border-gray-300 focus:ring-1 focus:ring-black focus:border-black bg-white"
                     >
                       <option value="">Select a service</option>
-                      <option value="land-property-survey">Land & Property Survey</option>
-                      <option value="topographic-mapping">Topographic Mapping</option>
-                      <option value="boundary-reestablishment">Boundary Reestablishment</option>
-                      <option value="construction-layout">Construction Layout</option>
+                      <option value="land-property-survey">
+                        Land & Property Survey
+                      </option>
+                      <option value="topographic-mapping">
+                        Topographic Mapping
+                      </option>
+                      <option value="boundary-reestablishment">
+                        Boundary Reestablishment
+                      </option>
+                      <option value="construction-layout">
+                        Construction Layout
+                      </option>
                       <option value="other">Other</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-black mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-black mb-2"
+                  >
                     Project Details *
                   </label>
                   <textarea
@@ -252,7 +301,8 @@ export default function Contact() {
               </form>
 
               <p className="text-sm text-gray-500 mt-4">
-                * Required fields. We respect your privacy and will never share your information.
+                * Required fields. We respect your privacy and will never share
+                your information.
               </p>
             </div>
           </div>

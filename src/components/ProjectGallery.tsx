@@ -25,14 +25,14 @@ export default function ProjectGallery() {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch('/api/projects?published=true&limit=6');
+      const response = await fetch("/api/projects?published=true&limit=6");
       const data = await response.json();
-      
+
       if (data.success) {
         setProjects(data.data);
       }
     } catch (error) {
-      console.error('Error fetching projects:', error);
+      console.error("Error fetching projects:", error);
     } finally {
       setLoading(false);
     }
@@ -55,10 +55,13 @@ export default function ProjectGallery() {
           <div className="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
             <Camera size={32} className="text-gray-400" />
           </div>
-          <h3 className="text-2xl font-bold text-black mb-4">Projects Coming Soon</h3>
+          <h3 className="text-2xl font-bold text-black mb-4">
+            Projects Coming Soon
+          </h3>
           <p className="text-gray-600 mb-6 leading-relaxed">
-            We're currently working on exciting surveying projects that will be showcased here. 
-            Check back soon to see our latest work in action.
+            We&apos;re currently working on exciting surveying projects that
+            will be showcased here. Check back soon to see our latest work in
+            action.
           </p>
           <div className="inline-flex items-center text-sm text-gray-500 bg-gray-50 px-4 py-2 rounded-full">
             <Calendar size={16} className="mr-2" />
@@ -73,8 +76,11 @@ export default function ProjectGallery() {
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project) => (
-          <div key={project._id} className="aspect-square group cursor-pointer overflow-hidden rounded-lg">
-            <div 
+          <div
+            key={project._id}
+            className="aspect-square group cursor-pointer overflow-hidden rounded-lg"
+          >
+            <div
               className="w-full h-full bg-gray-200 hover:opacity-90 transition-opacity relative"
               onClick={() => setSelectedImage(project.imageUrl)}
             >
@@ -95,7 +101,7 @@ export default function ProjectGallery() {
 
       {/* Image Modal */}
       {selectedImage && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
           onClick={() => setSelectedImage(null)}
         >
