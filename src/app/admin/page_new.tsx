@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Upload, X, Eye, Trash2, Plus } from "lucide-react";
+import { Upload, X, Eye, Trash2 } from "lucide-react";
 
 interface UploadedImage {
   _id: string;
@@ -24,7 +24,7 @@ export default function AdminPanel() {
     files: null as FileList | null,
     caption: "",
     title: "",
-    category: "Other"
+    category: "Other",
   });
 
   // Simple password authentication (in production, use proper auth)
@@ -38,14 +38,14 @@ export default function AdminPanel() {
 
   const fetchImages = async () => {
     try {
-      const response = await fetch('/api/projects');
+      const response = await fetch("/api/projects");
       const data = await response.json();
-      
+
       if (data.success) {
         setImages(data.data);
       }
     } catch (error) {
-      console.error('Error fetching images:', error);
+      console.error("Error fetching images:", error);
     }
   };
 
@@ -62,14 +62,14 @@ export default function AdminPanel() {
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (files) {
-      setUploadForm(prev => ({ ...prev, files }));
+      setUploadForm((prev) => ({ ...prev, files }));
       setShowUploadForm(true);
     }
   };
 
   const handleImageUpload = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!uploadForm.files || !uploadForm.caption.trim()) {
       alert("Please select files and enter a caption");
       return;
@@ -84,12 +84,12 @@ export default function AdminPanel() {
         reader.onload = async (event) => {
           try {
             const imageUrl = event.target?.result as string;
-            
+
             // Create project via API
-            const response = await fetch('/api/projects', {
-              method: 'POST',
+            const response = await fetch("/api/projects", {
+              method: "POST",
               headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
               },
               body: JSON.stringify({
                 title: uploadForm.title || file.name,
@@ -97,32 +97,31 @@ export default function AdminPanel() {
                 imageUrl,
                 caption: uploadForm.caption,
                 category: uploadForm.category,
-                isPublished: true
+                isPublished: true,
               }),
             });
 
             if (response.ok) {
               fetchImages(); // Refresh the images list
             } else {
-              throw new Error('Failed to upload');
+              throw new Error("Failed to upload");
             }
           } catch (error) {
-            console.error('Error uploading image:', error);
-            alert('Error uploading image');
+            console.error("Error uploading image:", error);
+            alert("Error uploading image");
           }
         };
         reader.readAsDataURL(file);
       }
-      
+
       // Reset form
       setUploadForm({
         files: null,
         caption: "",
         title: "",
-        category: "Other"
+        category: "Other",
       });
       setShowUploadForm(false);
-      
     } catch (error) {
       console.error("Error uploading images:", error);
       alert("Error uploading images");
@@ -133,20 +132,20 @@ export default function AdminPanel() {
 
   const deleteImage = async (id: string) => {
     if (!confirm("Are you sure you want to delete this image?")) return;
-    
+
     try {
       const response = await fetch(`/api/projects/${id}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
-      
+
       if (response.ok) {
         fetchImages(); // Refresh the images list
       } else {
-        throw new Error('Failed to delete');
+        throw new Error("Failed to delete");
       }
     } catch (error) {
-      console.error('Error deleting image:', error);
-      alert('Error deleting image');
+      console.error("Error deleting image:", error);
+      alert("Error deleting image");
     }
   };
 
@@ -240,7 +239,9 @@ export default function AdminPanel() {
                 </div>
               </div>
               {uploading && (
-                <p className="mt-2 text-sm text-gray-600">Uploading images...</p>
+                <p className="mt-2 text-sm text-gray-600">
+                  Uploading images...
+                </p>
               )}
             </div>
 
@@ -260,7 +261,12 @@ export default function AdminPanel() {
                         type="text"
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-black focus:border-black"
                         value={uploadForm.title}
-                        onChange={(e) => setUploadForm(prev => ({ ...prev, title: e.target.value }))}
+                        onChange={(e) =>
+                          setUploadForm((prev) => ({
+                            ...prev,
+                            title: e.target.value,
+                          }))
+                        }
                         placeholder="Enter image title"
                       />
                     </div>
@@ -272,7 +278,12 @@ export default function AdminPanel() {
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-black focus:border-black"
                         rows={3}
                         value={uploadForm.caption}
-                        onChange={(e) => setUploadForm(prev => ({ ...prev, caption: e.target.value }))}
+                        onChange={(e) =>
+                          setUploadForm((prev) => ({
+                            ...prev,
+                            caption: e.target.value,
+                          }))
+                        }
                         placeholder="Enter image caption"
                         required
                       />
@@ -284,12 +295,21 @@ export default function AdminPanel() {
                       <select
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-black focus:border-black"
                         value={uploadForm.category}
-                        onChange={(e) => setUploadForm(prev => ({ ...prev, category: e.target.value }))}
+                        onChange={(e) =>
+                          setUploadForm((prev) => ({
+                            ...prev,
+                            category: e.target.value,
+                          }))
+                        }
                       >
                         <option value="Land Survey">Land Survey</option>
-                        <option value="Topographic Mapping">Topographic Mapping</option>
+                        <option value="Topographic Mapping">
+                          Topographic Mapping
+                        </option>
                         <option value="Boundary Survey">Boundary Survey</option>
-                        <option value="Construction Layout">Construction Layout</option>
+                        <option value="Construction Layout">
+                          Construction Layout
+                        </option>
                         <option value="Site Planning">Site Planning</option>
                         <option value="Other">Other</option>
                       </select>

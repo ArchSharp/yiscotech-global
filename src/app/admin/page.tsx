@@ -19,8 +19,8 @@ export default function AdminPanel() {
   const [images, setImages] = useState<UploadedImage[]>([]);
   const [uploading, setUploading] = useState(false);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
-  const [imageCaption, setImageCaption] = useState("");
-  const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
+  // const [imageCaption, setImageCaption] = useState("");
+  // const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
 
   // Simple password authentication (in production, use proper auth)
   const ADMIN_PASSWORD = "yiscotech2024";
@@ -31,14 +31,14 @@ export default function AdminPanel() {
 
   const fetchImages = async () => {
     try {
-      const response = await fetch('/api/projects');
+      const response = await fetch("/api/projects");
       const data = await response.json();
-      
+
       if (data.success) {
         setImages(data.data);
       }
     } catch (error) {
-      console.error('Error fetching images:', error);
+      console.error("Error fetching images:", error);
     }
   };
 
@@ -72,9 +72,12 @@ export default function AdminPanel() {
 
           const updatedImages = [...images, imageData];
           setImages(updatedImages);
-          
+
           // Save to localStorage
-          localStorage.setItem("yiscotech-images", JSON.stringify(updatedImages));
+          localStorage.setItem(
+            "yiscotech-images",
+            JSON.stringify(updatedImages)
+          );
         };
         reader.readAsDataURL(file);
       }
@@ -87,7 +90,7 @@ export default function AdminPanel() {
   };
 
   const deleteImage = (id: string) => {
-    const updatedImages = images.filter(img => img.id !== id);
+    const updatedImages = images.filter((img) => img.id !== id);
     setImages(updatedImages);
     localStorage.setItem("yiscotech-images", JSON.stringify(updatedImages));
   };
@@ -182,7 +185,9 @@ export default function AdminPanel() {
                 </div>
               </div>
               {uploading && (
-                <p className="mt-2 text-sm text-gray-600">Uploading images...</p>
+                <p className="mt-2 text-sm text-gray-600">
+                  Uploading images...
+                </p>
               )}
             </div>
 

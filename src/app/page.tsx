@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { ArrowRight, MapPin, Ruler, Building, Target, Phone, Mail, MapPin as LocationIcon } from "lucide-react";
+// import Link from "next/link";
+import { ArrowRight, Phone, Mail, MapPin as LocationIcon } from "lucide-react"; //MapPin, Ruler, Building, Target
 import ProjectGallery from "@/components/ProjectGallery";
 
 export default function Home() {
@@ -16,14 +16,16 @@ export default function Home() {
             className="w-full h-full object-cover"
           />
         </div>
-        
+
         <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-            Land & Geospatial Surveying,<br />
+            Land & Geospatial Surveying,
+            <br />
             <span className="font-light">Done Right.</span>
           </h1>
           <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
-            YiscoTechGlobal Ltd offers expert surveying solutions with precision tools and licensed professionals.
+            YiscoTechGlobal Ltd offers expert surveying solutions with precision
+            tools and licensed professionals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -37,7 +39,7 @@ export default function Home() {
         </div>
       </section>
 
-            {/* About Us */}
+      {/* About Us */}
       <section className="py-16 border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -45,10 +47,12 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-black mb-8">About Us</h2>
               <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
                 <p>
-                  YiscoTechGlobal Ltd is a licensed land surveying firm offering accurate and reliable geospatial services.
+                  YiscoTechGlobal Ltd is a licensed land surveying firm offering
+                  accurate and reliable geospatial services.
                 </p>
                 <p>
-                  With years of field experience, we support estate developers, architects, engineers, and private landowners.
+                  With years of field experience, we support estate developers,
+                  architects, engineers, and private landowners.
                 </p>
               </div>
             </div>
@@ -142,40 +146,51 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-black mb-12 text-center">
             Latest Projects
           </h2>
-          
+
           <ProjectGallery />
         </div>
       </section>
-
 
       {/* Contact Section */}
       <section className="py-16 bg-black text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold mb-12 text-center">Contact</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
               <Phone size={24} className="mx-auto mb-4" strokeWidth={1} />
               <h3 className="font-semibold mb-2">Phone</h3>
-              <a href="tel:+1234567890" className="hover:text-gray-300 transition-colors">
+              <a
+                href="tel:+1234567890"
+                className="hover:text-gray-300 transition-colors"
+              >
                 +1 (555) 123-4567
               </a>
             </div>
-            
+
             <div>
               <Mail size={24} className="mx-auto mb-4" strokeWidth={1} />
               <h3 className="font-semibold mb-2">Email</h3>
-              <a href="mailto:info@yiscotechglobal.com" className="hover:text-gray-300 transition-colors">
+              <a
+                href="mailto:info@yiscotechglobal.com"
+                className="hover:text-gray-300 transition-colors"
+              >
                 info@yiscotechglobal.com
               </a>
             </div>
-            
+
             <div>
-              <LocationIcon size={24} className="mx-auto mb-4" strokeWidth={1} />
+              <LocationIcon
+                size={24}
+                className="mx-auto mb-4"
+                strokeWidth={1}
+              />
               <h3 className="font-semibold mb-2">Office</h3>
               <p className="text-gray-300">
-                123 Survey Street<br />
-                Professional District<br />
+                123 Survey Street
+                <br />
+                Professional District
+                <br />
                 City, State 12345
               </p>
             </div>
