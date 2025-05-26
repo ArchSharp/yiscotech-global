@@ -61,12 +61,13 @@ export async function GET(request: NextRequest) {
   }
 }
 
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+// { params }: { params: { id: string } }
+export async function PUT(request: NextRequest) {
   try {
     await dbConnect();
+
+    // Extract ID from the dynamic route URL
+    const id = request.nextUrl.pathname.split("/").pop();
 
     const body = await request.json();
     const {
@@ -92,7 +93,7 @@ export async function PUT(
       updateData.completionDate = new Date(completionDate);
     }
 
-    const project = await Project.findByIdAndUpdate(params.id, updateData, {
+    const project = await Project.findByIdAndUpdate(id, updateData, {
       new: true,
       runValidators: true,
     });
@@ -117,14 +118,14 @@ export async function PUT(
   }
 }
 
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+// { params }: { params: { id: string } }
+export async function DELETE(request: NextRequest) {
   try {
     await dbConnect();
+    // Extract ID from the dynamic route URL
+    const id = request.nextUrl.pathname.split("/").pop();
 
-    const project = await Project.findByIdAndDelete(params.id);
+    const project = await Project.findByIdAndDelete(id);
 
     if (!project) {
       return NextResponse.json(
