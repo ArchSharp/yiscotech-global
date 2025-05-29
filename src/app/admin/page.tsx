@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Upload, X, Eye, Trash2 } from "lucide-react";
 
 interface UploadedImage {
-  _id: string;
+  id: string;
   title: string;
   description: string;
   imageUrl: string;
@@ -65,9 +65,11 @@ export default function AdminPanel() {
         reader.onload = (event) => {
           const imageData: UploadedImage = {
             id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
-            filename: file.name,
-            url: event.target?.result as string,
+            title: file.name,
+            imageUrl: event.target?.result as string,
             uploadDate: new Date().toISOString(),
+            description: "",
+            category: "",
           };
 
           const updatedImages = [...images, imageData];
@@ -204,15 +206,15 @@ export default function AdminPanel() {
                     <div key={image.id} className="relative group">
                       <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200">
                         <img
-                          src={image.url}
-                          alt={image.filename}
+                          src={image.imageUrl}
+                          alt={image.title}
                           className="h-48 w-full object-cover object-center group-hover:opacity-75"
                         />
                       </div>
                       <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-200 rounded-lg flex items-center justify-center">
                         <div className="opacity-0 group-hover:opacity-100 flex space-x-2">
                           <button
-                            onClick={() => setPreviewImage(image.url)}
+                            onClick={() => setPreviewImage(image.imageUrl)}
                             className="p-2 bg-white rounded-full text-gray-700 hover:text-black"
                           >
                             <Eye size={16} />
@@ -227,7 +229,7 @@ export default function AdminPanel() {
                       </div>
                       <div className="mt-2">
                         <p className="text-xs text-gray-500 truncate">
-                          {image.filename}
+                          {image.title}
                         </p>
                         <p className="text-xs text-gray-400">
                           {new Date(image.uploadDate).toLocaleDateString()}
