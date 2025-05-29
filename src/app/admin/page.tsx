@@ -4,13 +4,17 @@ import { useState, useEffect } from "react";
 import { Upload, X, Eye, Trash2 } from "lucide-react";
 
 interface UploadedImage {
-  id: string;
+  _id: string;
   title: string;
   description: string;
   imageUrl: string;
   caption?: string;
   category: string;
-  uploadDate: string;
+  location?: string;
+  completionDate?: string;
+  isPublished: boolean;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export default function AdminPanel() {
@@ -51,7 +55,6 @@ export default function AdminPanel() {
       alert("Incorrect password");
     }
   };
-
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (!files) return;
@@ -60,28 +63,27 @@ export default function AdminPanel() {
 
     try {
       for (const file of Array.from(files)) {
-        // Create a file reader to convert to base64
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          const imageData: UploadedImage = {
-            id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
-            title: file.name,
-            imageUrl: event.target?.result as string,
-            uploadDate: new Date().toISOString(),
-            description: "",
-            category: "",
-          };
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('title', file.name.replace(/\.[^/.]+$/, "")); // Remove file extension
+        formData.append('description', `Project image: ${file.name}`);
+        formData.append('category', 'Other');
+        formData.append('isPublished', 'true');
 
-          const updatedImages = [...images, imageData];
-          setImages(updatedImages);
+        const response = await fetch('/api/projects', {
+          method: 'POST',
+          body: formData,
+        });
 
-          // Save to localStorage
-          localStorage.setItem(
-            "yiscotech-images",
-            JSON.stringify(updatedImages)
-          );
-        };
-        reader.readAsDataURL(file);
+        const result = await response.json();
+
+        if (result.success) {
+          // Refresh the images list
+          fetchImages();
+        } else {
+          console.error('Upload failed:', result.error);
+          alert(`Failed to upload ${file.name}: ${result.error}`);
+        }
       }
     } catch (error) {
       console.error("Error uploading images:", error);
@@ -90,11 +92,25 @@ export default function AdminPanel() {
       setUploading(false);
     }
   };
+  const deleteImage = async (id: string) => {
+    try {
+      const response = await fetch(`/api/projects/${id}`, {
+        method: 'DELETE',
+      });
 
-  const deleteImage = (id: string) => {
-    const updatedImages = images.filter((img) => img.id !== id);
-    setImages(updatedImages);
-    localStorage.setItem("yiscotech-images", JSON.stringify(updatedImages));
+      const result = await response.json();
+
+      if (result.success) {
+        // Refresh the images list
+        fetchImages();
+      } else {
+        console.error('Delete failed:', result.error);
+        alert(`Failed to delete image: ${result.error}`);
+      }
+    } catch (error) {
+      console.error("Error deleting image:", error);
+      alert("Error deleting image");
+    }
   };
 
   if (!isAuthenticated) {
@@ -200,10 +216,9 @@ export default function AdminPanel() {
               </h2>
               {images.length === 0 ? (
                 <p className="text-gray-500">No images uploaded yet.</p>
-              ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              ) : (                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                   {images.map((image) => (
-                    <div key={image.id} className="relative group">
+                    <div key={image._id} className="relative group">
                       <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200">
                         <img
                           src={image.imageUrl}
@@ -220,7 +235,7 @@ export default function AdminPanel() {
                             <Eye size={16} />
                           </button>
                           <button
-                            onClick={() => deleteImage(image.id)}
+                            onClick={() => deleteImage(image._id)}
                             className="p-2 bg-white rounded-full text-red-600 hover:text-red-800"
                           >
                             <Trash2 size={16} />
@@ -232,7 +247,7 @@ export default function AdminPanel() {
                           {image.title}
                         </p>
                         <p className="text-xs text-gray-400">
-                          {new Date(image.uploadDate).toLocaleDateString()}
+                          {new Date(image.createdAt).toLocaleDateString()}
                         </p>
                       </div>
                     </div>

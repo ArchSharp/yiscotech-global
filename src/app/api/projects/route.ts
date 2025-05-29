@@ -44,34 +44,34 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     await dbConnect();
-    const body = await request.json();
-    const {
-      title,
-      description,
-      imageUrl,
-      caption,
-      category,
-      location,
-      completionDate,
-      isPublished,
-    } = body;
+    
+    const formData = await request.formData();
+    const file = formData.get('file') as File;
+    const title = formData.get('title') as string;
+    const description = formData.get('description') as string;
+    const category = formData.get('category') as string;
+    const isPublished = formData.get('isPublished') === 'true';
 
-    // Validate required fields
-    if (!title || !description || !imageUrl || !category) {
+    if (!file) {
       return NextResponse.json(
-        { success: false, error: "Missing required fields" },
+        { success: false, error: "No file uploaded" },
         { status: 400 }
       );
     }
+
+    // Convert file to base64
+    const bytes = await file.arrayBuffer();
+    const buffer = Buffer.from(bytes);
+    const base64 = buffer.toString('base64');
+    const mimeType = file.type;
+    const imageUrl = `data:${mimeType};base64,${base64}`;
+
     const project = new Project({
-      title,
-      description,
+      title: title || file.name.replace(/\.[^/.]+$/, ""),
+      description: description || `Project image: ${file.name}`,
       imageUrl,
-      caption,
-      category,
-      location,
-      completionDate: completionDate ? new Date(completionDate) : undefined,
-      isPublished: isPublished || false,
+      category: category || 'Other',
+      isPublished: isPublished !== undefined ? isPublished : true,
     });
 
     await project.save();
