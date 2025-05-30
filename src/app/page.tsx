@@ -187,7 +187,8 @@ export default function Home() {
               />
               <h3 className="font-semibold mb-2">Office</h3>
               <p className="text-gray-300">
-                24 Ifelodun street, off Ejigbo/Idimu road, Ifelodun, Lagos State
+                24 Ifelodun street, <br /> off Ejigbo/Idimu road, <br />
+                Ifelodun, Lagos State
               </p>
             </div>
           </div>

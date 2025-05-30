@@ -131,7 +131,7 @@ export default function Contact() {
                       Office Address
                     </h3>
                     <p className="text-gray-600 text-lg leading-relaxed">
-                      24 Ifelodun street, off Ejigbo/Idimu road,
+                      24 Ifelodun street, <br /> off Ejigbo/Idimu road, <br />
                       Ifelodun, Lagos State
                     </p>
                   </div>
