@@ -131,11 +131,8 @@ export default function Contact() {
                       Office Address
                     </h3>
                     <p className="text-gray-600 text-lg leading-relaxed">
-                      123 Survey Street
-                      <br />
-                      Professional District
-                      <br />
-                      City, State 12345
+                      24 Ifelodun street, off Ejigbo/Idimu road,
+                      Ifelodun, Lagos State
                     </p>
                   </div>
                 </div>

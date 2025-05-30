@@ -187,11 +187,7 @@ export default function Home() {
               />
               <h3 className="font-semibold mb-2">Office</h3>
               <p className="text-gray-300">
-                123 Survey Street
-                <br />
-                Professional District
-                <br />
-                City, State 12345
+                24 Ifelodun street, off Ejigbo/Idimu road, Ifelodun, Lagos State
               </p>
             </div>
           </div>
