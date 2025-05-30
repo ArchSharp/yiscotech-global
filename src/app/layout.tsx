@@ -16,10 +16,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "YiscoTechGlobal Ltd - Professional Land Surveying Services",
-  description: "Expert land surveying services including topographical surveys, boundary surveys, and construction layout. Professional, accurate, and reliable surveying solutions.",
-  keywords: ["land surveying", "topographical survey", "boundary survey", "construction layout", "surveying services", "professional surveyor"],
-  authors: [{ name: "YiscoTechGlobal Ltd" }],
+  title:
+    "Yiscotech Global Services Limited - Professional Land Surveying Services",
+  description:
+    "Expert land surveying services including topographical surveys, boundary surveys, and construction layout. Professional, accurate, and reliable surveying solutions.",
+  keywords: [
+    "land surveying",
+    "topographical survey",
+    "boundary survey",
+    "construction layout",
+    "surveying services",
+    "professional surveyor",
+  ],
+  authors: [{ name: "Yiscotech Global Services Limited" }],
   viewport: "width=device-width, initial-scale=1",
 };
 
@@ -34,9 +43,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navigation />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
         <WhatsAppButton />
       </body>

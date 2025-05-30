@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact YiscoTechGlobal Ltd - Professional Land Surveying Services",
+  title:
+    "Contact Yiscotech Global Services Limited - Professional Land Surveying Services",
   description:
-    "Contact YiscoTechGlobal Ltd for professional land surveying services. Get a free quote for boundary surveys, topographical mapping, and construction layout services.",
+    "Contact Yiscotech Global Services Limited for professional land surveying services. Get a free quote for boundary surveys, topographical mapping, and construction layout services.",
   keywords: [
     "contact surveyor",
     "land survey quote",

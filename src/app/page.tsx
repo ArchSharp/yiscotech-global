@@ -24,12 +24,12 @@ export default function Home() {
             <span className="font-light">Done Right.</span>
           </h1>
           <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed">
-            YiscoTechGlobal Ltd offers expert surveying solutions with precision
-            tools and licensed professionals.
+            Yiscotech Global Services Limited offers expert surveying solutions
+            with precision tools and licensed professionals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:info@yiscotechglobal.com?subject=Request%20Quote"
+              href="mailto:yiscotechglobal01@gmail.com, yisco4yekeen89@gmail.com ?subject=Request%20Quote"
               className="bg-white text-black px-8 py-3 font-medium hover:bg-gray-100 transition-colors inline-flex items-center justify-center"
             >
               Request a Quote
@@ -47,8 +47,8 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-black mb-8">About Us</h2>
               <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
                 <p>
-                  YiscoTechGlobal Ltd is a licensed land surveying firm offering
-                  accurate and reliable geospatial services.
+                  Yiscotech Global Services Limited is a licensed land surveying
+                  firm offering accurate and reliable geospatial services.
                 </p>
                 <p>
                   With years of field experience, we support estate developers,
@@ -172,10 +172,10 @@ export default function Home() {
               <Mail size={24} className="mx-auto mb-4" strokeWidth={1} />
               <h3 className="font-semibold mb-2">Email</h3>
               <a
-                href="mailto:info@yiscotechglobal.com"
+                href="mailto:yiscotechglobal01@gmail.com, yisco4yekeen89@gmail.com "
                 className="hover:text-gray-300 transition-colors"
               >
-                info@yiscotechglobal.com
+                yiscotechglobal01@gmail.com, yisco4yekeen89@gmail.com
               </a>
             </div>
 

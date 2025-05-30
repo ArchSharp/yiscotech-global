@@ -111,10 +111,10 @@ export default function Contact() {
                       Email
                     </h3>
                     <a
-                      href="mailto:info@yiscotechglobal.com"
+                      href="mailto:yiscotechglobal01@gmail.com, yisco4yekeen89@gmail.com "
                       className="text-gray-600 hover:text-black transition-colors text-lg"
                     >
-                      info@yiscotechglobal.com
+                      yiscotechglobal01@gmail.com, yisco4yekeen89@gmail.com
                     </a>
                     <p className="text-sm text-gray-500 mt-1">
                       We&apos;ll respond within 24 hours
