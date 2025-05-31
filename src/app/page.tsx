@@ -72,7 +72,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center my-10">
-            <div className="order-1 lg:order-2">
+            <div className="order-2 lg:order-2">
               <h2 className="text-3xl font-bold text-black mb-8">
                 Our mission
               </h2>
@@ -83,7 +83,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="order-2 lg:order-1">
+            <div className="order-1 lg:order-1">
               <div className="relative overflow-hidden rounded-lg">
                 <img
                   src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
