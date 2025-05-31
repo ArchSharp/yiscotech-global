@@ -209,7 +209,7 @@ export default function Home() {
               <Phone size={24} className="mx-auto mb-4" strokeWidth={1} />
               <h3 className="font-semibold mb-2">Phone</h3>
               <a
-                href="tel:+1234567890"
+                href="tel:+2347061361575"
                 className="hover:text-gray-300 transition-colors"
               >
                 +234 706 136-1575

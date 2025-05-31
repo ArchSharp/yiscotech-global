@@ -91,7 +91,7 @@ export default function Contact() {
                       Phone
                     </h3>
                     <a
-                      href="tel:+15551234567"
+                      href="tel:+2347061361575"
                       className="text-gray-600 hover:text-black transition-colors text-lg"
                     >
                       +234 706 136-1575
@@ -147,7 +147,7 @@ export default function Contact() {
                   For quick responses and immediate assistance
                 </p>
                 <a
-                  href="https://wa.me/15551234567?text=Hello! I'm interested in your land surveying services."
+                  href="https://wa.me/2347061361575?text=Hello! I'm interested in your land surveying services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block bg-black text-white px-6 py-2 font-medium hover:bg-gray-800 transition-colors"
@@ -225,7 +225,7 @@ export default function Contact() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 focus:ring-1 focus:ring-black focus:border-black bg-white"
-                      placeholder="(555) 123-4567"
+                      placeholder="2347061361575"
                     />
                   </div>
 
