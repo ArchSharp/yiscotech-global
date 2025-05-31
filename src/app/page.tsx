@@ -212,7 +212,7 @@ export default function Home() {
                 href="tel:+1234567890"
                 className="hover:text-gray-300 transition-colors"
               >
-                +1 (555) 123-4567
+                +234 706 136-1575
               </a>
             </div>
 

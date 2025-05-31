@@ -94,7 +94,7 @@ export default function Contact() {
                       href="tel:+15551234567"
                       className="text-gray-600 hover:text-black transition-colors text-lg"
                     >
-                      +1 (555) 123-4567
+                      +234 706 136-1575
                     </a>
                     <p className="text-sm text-gray-500 mt-1">
                       Mon-Fri 8:00 AM - 6:00 PM
