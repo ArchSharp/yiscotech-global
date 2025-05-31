@@ -49,8 +49,8 @@ export default function Home() {
                 <p>
                   <b>Yiscotech Global Services Limited </b>
                   is an indigenous Nigerian owned company with registration
-                  number 7230321. The company specializes in providing well
-                  qualified and experienced individuals specialized in Land
+                  number <b>7230321</b>. The company specializes in providing
+                  well qualified and experienced individuals specialized in Land
                   surveying, Hydrographic Surveying, Engineering, GIS and
                   Project Management Services.
                 </p>
