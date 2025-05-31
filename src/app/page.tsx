@@ -47,12 +47,60 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-black mb-8">About Us</h2>
               <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
                 <p>
-                  Yiscotech Global Services Limited is a licensed land surveying
-                  firm offering accurate and reliable geospatial services.
+                  <b>Yiscotech Global Services Limited </b>
+                  is an indigenous Nigerian owned company with registration
+                  number 7230321. The company specializes in providing well
+                  qualified and experienced individuals specialized in Land
+                  surveying, Hydrographic Surveying, Engineering, GIS and
+                  Project Management Services.
                 </p>
                 <p>
                   With years of field experience, we support estate developers,
                   architects, engineers, and private landowners.
+                </p>
+              </div>
+            </div>
+            <div className="order-1 lg:order-2">
+              <div className="relative overflow-hidden rounded-lg">
+                <img
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Professional surveying team at work"
+                  className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center my-10">
+            <div className="order-1 lg:order-2">
+              <h2 className="text-3xl font-bold text-black mb-8">
+                Our mission
+              </h2>
+              <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
+                <p>
+                  To provide reliable information (accurate and precise data)
+                  for proper Land planning and management
+                </p>
+              </div>
+            </div>
+            <div className="order-2 lg:order-1">
+              <div className="relative overflow-hidden rounded-lg">
+                <img
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Professional surveying team at work"
+                  className="w-full h-80 object-cover hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <h2 className="text-3xl font-bold text-black mb-8">Our Vision</h2>
+              <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
+                <p>
+                  To be a globally recognized professional institution that
+                  provide Experts in surveying and land management.
                 </p>
               </div>
             </div>
